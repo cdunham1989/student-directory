@@ -24,7 +24,7 @@ def input_students
     end
 
 
-    students << {name: name.to_sym, cohort: cohort.to_sym}
+    students << {name: name.to_sym.capitalize, cohort: cohort.to_sym}
 
     puts "Now we have #{students.count} student" if students.count == 1
     puts "Now we have #{students.count} students" if students.count != 1
@@ -45,7 +45,8 @@ def print(students)
 end
 
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{students.count} great student" if students.count == 1
+  puts "Overall, we have #{students.count} great students" if students.count != 1
 end
 
 students = input_students
