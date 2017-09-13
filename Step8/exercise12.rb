@@ -23,9 +23,7 @@ def input_students
       break if months.include? cohort
     end
 
-
     students << {name: name.capitalize.to_sym, cohort: cohort.to_sym}
-
     puts "Now we have #{students.count} student" if students.count == 1
     puts "Now we have #{students.count} students" if students.count != 1
 
@@ -45,15 +43,16 @@ def print(students)
 end
 
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{students.count} great student" if students.count == 1
+  puts "Overall, we have #{students.count} great students" if students.count != 1
 end
 
 students = input_students
-if input_students.count >= 1
-  puts students.inspect
+
+if students.count >=1
   print_header
   print(students.sort_by { |hsh| hsh[:cohort]})
   print_footer(students)
 else
-  puts "There are no students in the list."
+  puts "There are no students."
 end
